@@ -36,6 +36,9 @@ namespace Proiect.Pages.Hoteluri
                 return NotFound();
             }
             Hotel = hotel;
+
+            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "ID", "Nume");
+            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
             return Page();
         }
 

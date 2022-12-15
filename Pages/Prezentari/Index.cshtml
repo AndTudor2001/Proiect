@@ -1,11 +1,11 @@
-﻿@page
+﻿@page "/"
 @model Proiect.Pages.Prezentari.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Bine ati venit!</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,20 +14,18 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Tara)
+                @Html.DisplayNameFor(model => model.Prezentare[0].Tara.Nume)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Oras)
+                @Html.DisplayNameFor(model => model.Prezentare[0].Oras.Nume)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].DescriereOras)
+                @Html.DisplayNameFor(model => model.Prezentare[0].Oras.Descriere)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Hotel)
+                @Html.DisplayNameFor(model => model.Prezentare[0].Hotel.Nume)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Rating)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -35,20 +33,18 @@
 @foreach (var item in Model.Prezentare) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Tara)
+                @Html.DisplayFor(modelItem => item.Tara.Nume)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Oras)
+                @Html.DisplayFor(modelItem => item.Oras.Nume)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DescriereOras)
+                @Html.DisplayFor(modelItem => item.Oras.Descriere)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Hotel)
+                @Html.DisplayFor(modelItem => item.Hotel.Nume)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
+      
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

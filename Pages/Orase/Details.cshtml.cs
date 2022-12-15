@@ -19,12 +19,13 @@ namespace Proiect.Pages.Orase
             _context = context;
         }
 
-      public Oras Oras { get; set; }
+      public Oras? Oras { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Oras == null)
             {
+
                 return NotFound();
             }
 

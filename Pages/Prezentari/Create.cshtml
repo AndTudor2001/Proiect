@@ -14,29 +14,28 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Prezentare.Tara" class="control-label"></label>
-                <input asp-for="Prezentare.Tara" class="form-control" />
-                <span asp-validation-for="Prezentare.Tara" class="text-danger"></span>
+                <label asp-for="Prezentare.TaraID" class="control-label">Tara</label>
+                <select asp-for="Prezentare.TaraID" class="form-control" asp-items="ViewBag.TaraID">
+                </select>
+                <span asp-validation-for="Prezentare.TaraID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Prezentare.Oras" class="control-label"></label>
-                <input asp-for="Prezentare.Oras" class="form-control" />
-                <span asp-validation-for="Prezentare.Oras" class="text-danger"></span>
+                <label asp-for="Prezentare.OrasID" class="control-label"></label>
+                <select asp-for="Prezentare.OrasID" class="form-control" asp-items="ViewBag.OrasID">
+                </select>
+                <span asp-validation-for="Prezentare.OrasID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Prezentare.DescriereOras" class="control-label"></label>
-                <input asp-for="Prezentare.DescriereOras" class="form-control" />
-                <span asp-validation-for="Prezentare.DescriereOras" class="text-danger"></span>
+                <label asp-for="Prezentare.Oras.Descriere" class="control-label"></label>
+                <select asp-for="Prezentare.OrasID" class="form-control" asp-items="ViewBag.OrasD">
+                </select>
+                <span asp-validation-for="Prezentare.Oras.Descriere" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Prezentare.Hotel" class="control-label"></label>
-                <input asp-for="Prezentare.Hotel" class="form-control" />
-                <span asp-validation-for="Prezentare.Hotel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prezentare.Rating" class="control-label"></label>
-                <input asp-for="Prezentare.Rating" class="form-control" />
-                <span asp-validation-for="Prezentare.Rating" class="text-danger"></span>
+                <label asp-for="Prezentare.HotelID" class="control-label"></label>
+                <select asp-for="Prezentare.HotelID" class="form-control" asp-items="ViewBag.HotelID">
+                </select>
+                <span asp-validation-for="Prezentare.HotelID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

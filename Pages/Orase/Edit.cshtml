@@ -15,7 +15,18 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Oras.Id" />
             <div class="form-group">
-                <label asp-for="Oras.Descriere" class="control-label"></label>
+                <label asp-for="Oras.Nume" class="control-label">Nume</label>
+                <input asp-for="Oras.Nume" class="form-control" />
+                <span asp-validation-for="Oras.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oras.TaraID" class="control-label">Tara</label>
+                <select asp-for="Oras.TaraID" class="form-control" asp-items="ViewBag.TaraID">
+                </select>
+                <span asp-validation-for="Oras.TaraID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oras.Descriere" class="control-label">Descriere</label>
                 <input asp-for="Oras.Descriere" class="form-control" />
                 <span asp-validation-for="Oras.Descriere" class="text-danger"></span>
             </div>

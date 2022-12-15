@@ -15,18 +15,30 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Review.Id" />
             <div class="form-group">
+                <label asp-for="Review.HotelID" class="control-label">Hotel</label>
+                <select asp-for="Review.HotelID" class="form-control" asp-items="ViewBag.HotelID">
+                </select>
+                <span asp-validation-for="Review.HotelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.OrasID" class="control-label">Hotel</label>
+                <select asp-for="Review.OrasID" class="form-control" asp-items="ViewBag.OrasID">
+                </select>
+                <span asp-validation-for="Review.OrasID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.TaraID" class="control-label">Hotel</label>
+                <select asp-for="Review.TaraID" class="form-control" asp-items="ViewBag.TaraID">
+                </select>
+                <span asp-validation-for="Review.TaraID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="Review.Parere" class="control-label"></label>
                 <input asp-for="Review.Parere" class="form-control" />
                 <span asp-validation-for="Review.Parere" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Review.Rating" class="control-label"></label>
-                <input asp-for="Review.Rating" class="form-control" />
-                <span asp-validation-for="Review.Rating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+
         </form>
     </div>
 </div>

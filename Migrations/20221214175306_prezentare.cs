@@ -18,7 +18,7 @@ namespace Proiect.Migrations
                     Oras = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DescriereOras = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Hotel = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Rating = table.Column<int>(type: "int", nullable: false)
+       
                 },
                 constraints: table =>
                 {

@@ -36,6 +36,7 @@ namespace Proiect.Pages.Orase
                 return NotFound();
             }
             Oras = oras;
+            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
             return Page();
         }
 

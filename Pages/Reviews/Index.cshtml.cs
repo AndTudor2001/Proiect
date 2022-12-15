@@ -25,7 +25,11 @@ namespace Proiect.Pages.Reviews
         {
             if (_context.Review != null)
             {
-                Review = await _context.Review.ToListAsync();
+                Review = await _context.Review
+                    .Include(b=>b.Oras)
+                    .Include(b => b.Tara)
+                    .Include(b => b.Hotel)
+                    .ToListAsync();
             }
         }
     }

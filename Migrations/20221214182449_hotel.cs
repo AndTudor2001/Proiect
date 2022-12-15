@@ -20,7 +20,7 @@ namespace Proiect.Migrations
                     Locatie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NrPers = table.Column<int>(type: "int", nullable: false),
                     PretCamera = table.Column<int>(type: "int", nullable: false),
-                    Rating = table.Column<int>(type: "int", nullable: false)
+                
                 },
                 constraints: table =>
                 {

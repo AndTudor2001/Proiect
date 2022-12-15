@@ -20,7 +20,7 @@ namespace Proiect.Pages.Orase
         }
 
         [BindProperty]
-      public Oras Oras { get; set; }
+      public Oras? Oras { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

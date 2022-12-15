@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Parere</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,11 +14,18 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].Parere)
+                @Html.DisplayNameFor(model => model.Review[0].Hotel.Nume)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].Rating)
+                @Html.DisplayNameFor(model => model.Review[0].Tara.Nume)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Oras.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Parere)
+            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -26,11 +33,18 @@
 @foreach (var item in Model.Review) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Parere)
+                @Html.DisplayFor(modelItem => item.Hotel.Nume )
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oras.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tara.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parere)
+                </td>
+           
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

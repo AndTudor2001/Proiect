@@ -84,8 +84,6 @@ namespace Proiect.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
 
                     b.Property<string>("Tara")
                         .IsRequired()

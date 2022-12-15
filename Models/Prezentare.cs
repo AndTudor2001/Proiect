@@ -3,12 +3,13 @@
     public class Prezentare
     {
         public int Id { get; set; }
-       public string Tara { get; set; }
-        public string Oras { get; set; }
-        public string DescriereOras { get; set; }
-        public string Hotel { get; set; }
-        public int Rating { get; set; }
-
+        public int? TaraID { get; set; }
+       public  Tara? Tara { get; set; }
+        public int? OrasID { get; set; }
+        public Oras? Oras { get; set; }
+        public int? HotelID { get; set; }
+        public Hotel? Hotel { get; set; }
+       
 
     }
 }

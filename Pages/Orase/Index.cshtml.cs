@@ -25,7 +25,9 @@ namespace Proiect.Pages.Orase
         {
             if (_context.Oras != null)
             {
-                Oras = await _context.Oras.ToListAsync();
+                Oras = await _context.Oras
+                    .Include(b=>b.Tara)
+                    .ToListAsync();
             }
         }
     }

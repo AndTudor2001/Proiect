@@ -21,6 +21,10 @@ namespace Proiect.Pages.Prezentari
 
         public IActionResult OnGet()
         {
+            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "ID", "Nume");
+            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
+            ViewData["OrasD"] = new SelectList(_context.Set<Oras>(), "ID", "Descriere");
+            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "ID", "Nume");
             return Page();
         }
 

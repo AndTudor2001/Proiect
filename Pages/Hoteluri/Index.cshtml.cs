@@ -25,7 +25,10 @@ namespace Proiect.Pages.Hoteluri
         {
             if (_context.Hotel != null)
             {
-                Hotel = await _context.Hotel.ToListAsync();
+                Hotel = await _context.Hotel
+                    .Include(b=>b.Oras)
+                    .Include(b=>b.Tara)
+                    .ToListAsync();
             }
         }
     }

@@ -21,6 +21,7 @@ namespace Proiect.Pages.Orase
 
         public IActionResult OnGet()
         {
+            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
             return Page();
         }
 

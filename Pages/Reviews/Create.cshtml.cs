@@ -21,6 +21,9 @@ namespace Proiect.Pages.Reviews
 
         public IActionResult OnGet()
         {
+            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "ID", "Nume");
+            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
+            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "ID", "Nume");
             return Page();
         }
 

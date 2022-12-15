@@ -24,6 +24,30 @@
                 <span asp-validation-for="Rezervare.Prenume" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Rezervare.HotelID" class="control-label">Hotel</label>
+                <select asp-for="Rezervare.HotelID" class="form-control" asp-items="ViewBag.HotelID">
+                </select>
+                <span asp-validation-for="Rezervare.HotelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rezervare.OrasID" class="control-label">Hotel</label>
+                <select asp-for="Rezervare.OrasID" class="form-control" asp-items="ViewBag.OrasID">
+                </select>
+                <span asp-validation-for="Rezervare.HotelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rezervare.TaraID" class="control-label">Hotel</label>
+                <select asp-for="Rezervare.TaraID" class="form-control" asp-items="ViewBag.TaraID">
+                </select>
+                <span asp-validation-for="Rezervare.HotelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rezervare.Hotel.TipCamera" class="control-label">Hotel</label>
+                <select asp-for="Rezervare.Hotel.TipCamera" class="form-control" asp-items="ViewBag.HotelT">
+                </select>
+                <span asp-validation-for="Rezervare.Hotel.TipCamera" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Rezervare.Persoane" class="control-label"></label>
                 <input asp-for="Rezervare.Persoane" class="form-control" />
                 <span asp-validation-for="Rezervare.Persoane" class="text-danger"></span>

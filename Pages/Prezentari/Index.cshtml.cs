@@ -25,7 +25,11 @@ namespace Proiect.Pages.Prezentari
         {
             if (_context.Prezentare != null)
             {
-                Prezentare = await _context.Prezentare.ToListAsync();
+                Prezentare = await _context.Prezentare
+                    .Include(b=>b.Tara)
+                    .Include(b=>b.Oras)
+                    .Include(b=>b.Hotel)
+                    .ToListAsync();
             }
         }
     }

@@ -14,27 +14,40 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Hotel.Nume" class="control-label"></label>
+                <label asp-for="Hotel.Nume" class="control-label">Nume</label>
                 <input asp-for="Hotel.Nume" class="form-control" />
                 <span asp-validation-for="Hotel.Nume" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hotel.Locatie" class="control-label"></label>
-                <input asp-for="Hotel.Locatie" class="form-control" />
-                <span asp-validation-for="Hotel.Locatie" class="text-danger"></span>
+                <label asp-for="Hotel.OrasID" class="control-label">Oras</label>
+                <select asp-for="Hotel.OrasID" class="form-control" asp-items="ViewBag.OrasID">
+                </select>
+                <span asp-validation-for="Hotel.OrasID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hotel.NrPers" class="control-label"></label>
+                <label asp-for="Hotel.TaraID" class="control-label">Tara</label>
+                <select asp-for="Hotel.TaraID" class="form-control" asp-items="ViewBag.TaraID">
+                </select>
+                <span asp-validation-for="Hotel.TaraID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hotel.TipCamera" class="control-label">Tip Camera</label>
+                <input asp-for="Hotel.TipCamera" class="form-control" />
+                <span asp-validation-for="Hotel.TipCamera" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Hotel.NrPers" class="control-label">Numar Persoane</label>
                 <input asp-for="Hotel.NrPers" class="form-control" />
                 <span asp-validation-for="Hotel.NrPers" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hotel.PretCamera" class="control-label"></label>
+                <label asp-for="Hotel.PretCamera" class="control-label">Pret </label>
                 <input asp-for="Hotel.PretCamera" class="form-control" />
                 <span asp-validation-for="Hotel.PretCamera" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hotel.Rating" class="control-label"></label>
+                <label asp-for="Hotel.Rating" class="control-label">Rating</label>
                 <input asp-for="Hotel.Rating" class="form-control" />
                 <span asp-validation-for="Hotel.Rating" class="text-danger"></span>
             </div>

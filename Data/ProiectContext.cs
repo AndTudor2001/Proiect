@@ -9,7 +9,7 @@ namespace Proiect.Data
 {
     public class ProiectContext : DbContext
     {
-        public ProiectContext (DbContextOptions<ProiectContext> options)
+        public ProiectContext(DbContextOptions<ProiectContext> options)
             : base(options)
         {
         }
