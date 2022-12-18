@@ -27,7 +27,7 @@ namespace Proiect.Pages.Hoteluri
         }
 
         [BindProperty]
-        public Hotel Hotel { get; set; }
+        public Hotel? Hotel { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -38,7 +38,7 @@ namespace Proiect.Pages.Hoteluri
                 return Page();
             }
 
-            _context.Hotel.Add(Hotel);
+            _ = _context.Hotel.Add(Hotel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

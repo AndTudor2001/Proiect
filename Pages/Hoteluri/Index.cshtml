@@ -16,10 +16,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Hotel[0].Nume)
             </th>
-            @Html.DisplayNameFor(model => model.Hotel[0].Oras.Tara)
             <th>
+            @Html.LabelFor(model => model.Hotel[0].Tara.Nume,"Tara")</th>
+            <th>
+                @Html.LabelFor(model => model.Hotel[0].Oras.Nume,"Oras")
             </th>
-            @Html.DisplayNameFor(model => model.Hotel[0].Oras.Nume)
+           
             <th>
                 @Html.DisplayNameFor(model => model.Hotel[0].NrPers)
             </th>
@@ -38,8 +40,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Nume)
             </td>
-     <td>
-                    @Html.DisplayFor(modelItem => item.Oras.Tara)
+             <td>
+         @Html.DisplayFor(modelItem => item.Tara.Nume)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Oras.Nume)

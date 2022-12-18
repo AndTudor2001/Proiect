@@ -19,7 +19,7 @@ namespace Proiect.Models
         public int? Rating { get; set; }
 
         public ICollection<Prezentare>? Prezentari { get; set; }
-       // public ICollection<Rezervare>? Rezervari { get; set; }
+        public ICollection<Rezervare>? Rezervari { get; set; }
         public ICollection<Review>? Reviews { get; set; }
     }
 }

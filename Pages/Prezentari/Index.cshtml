@@ -14,16 +14,17 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Tara.Nume)
+                @Html.LabelFor(model => model.Prezentare[0].Tara.Nume,"Tara")
+                
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Oras.Nume)
+                @Html.LabelFor(model => model.Prezentare[0].Oras.Nume,"Oras")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Oras.Descriere)
+                @Html.LabelFor(model => model.Prezentare[0].Oras.Nume,"Descriere Oras")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prezentare[0].Hotel.Nume)
+                @Html.LabelFor(model => model.Prezentare[0].Hotel.Nume,"Hotel")
             </th>
 
             <th></th>
@@ -33,15 +34,19 @@
 @foreach (var item in Model.Prezentare) {
         <tr>
             <td>
+             
                 @Html.DisplayFor(modelItem => item.Tara.Nume)
             </td>
             <td>
+               
                 @Html.DisplayFor(modelItem => item.Oras.Nume)
             </td>
             <td>
+               
                 @Html.DisplayFor(modelItem => item.Oras.Descriere)
             </td>
             <td>
+               
                 @Html.DisplayFor(modelItem => item.Hotel.Nume)
             </td>
       
