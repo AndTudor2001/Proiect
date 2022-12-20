@@ -8,7 +8,7 @@
 <h1>Hoteluri</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+     <button class="btn btn-light"><a style="text-decoration:none; color:black" asp-page="Create">Adaugă</a></button>
 </p>
 <table class="table">
     <thead>
@@ -21,12 +21,15 @@
             <th>
                 @Html.LabelFor(model => model.Hotel[0].Oras.Nume,"Oras")
             </th>
-           
+
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel[0].TipCamera)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Hotel[0].NrPers)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Hotel[0].PretCamera)
+                @Html.LabelFor(model => model.Hotel[0].PretCamera,"PrețCameră(eur)/noapte")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Hotel[0].Rating)
@@ -46,6 +49,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Oras.Nume)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipCamera)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NrPers)
             </td>
@@ -56,9 +62,9 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <button class="btn btn-primary"> <a style="color: white; text-decoration: none" asp-page="./Details" asp-route-id="@item.Id">Detalii</a></button>
+                    <button class="btn btn-warning"> <a style="color: white; text-decoration: none" asp-page="./Edit" asp-route-id="@item.Id">Editează</a> </button>
+                    <button class="btn btn-danger"> <a style="color: white; text-decoration: none" asp-page="./Delete" asp-route-id="@item.Id">Șterge</a></button>
             </td>
         </tr>
 }

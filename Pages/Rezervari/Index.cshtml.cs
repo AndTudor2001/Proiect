@@ -28,7 +28,7 @@ namespace Proiect.Pages.Rezervari
                 Rezervare = await _context.Rezervare
                     .Include(b=>b.Tara)
                     .Include(b=>b.Oras)
-                    .Include(b => b.Hotel)
+                    .Include(b=>b.Hotel)
 
                     .ToListAsync();
             }

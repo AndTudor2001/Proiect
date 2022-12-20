@@ -22,10 +22,10 @@ namespace Proiect.Pages.Rezervari
         public IActionResult OnGet()
         {
 
-            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "ID", "Nume");
+            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
             ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
-            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "ID", "Nume");
-            ViewData["HotelT"] = new SelectList(_context.Set<Hotel>(), "ID", "TipCamera");
+            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "Id", "Nume");
+            ViewData["HotelT"] = new SelectList(_context.Set<Hotel>(), "Id", "TipCamera");
 
             return Page();
         }
@@ -45,7 +45,7 @@ namespace Proiect.Pages.Rezervari
             _context.Rezervare.Add(Rezervare);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Rezervari/Rezervat");
         }
     }
 }

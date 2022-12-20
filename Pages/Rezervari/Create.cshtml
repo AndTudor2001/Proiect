@@ -5,7 +5,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Adaugă</h1>
 
 <h4>Rezervare</h4>
 <hr />
@@ -30,19 +30,19 @@
                 <span asp-validation-for="Rezervare.HotelID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rezervare.OrasID" class="control-label">Hotel</label>
+                <label asp-for="Rezervare.OrasID" class="control-label">Oras</label>
                 <select asp-for="Rezervare.OrasID" class="form-control" asp-items="ViewBag.OrasID">
                 </select>
                 <span asp-validation-for="Rezervare.HotelID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rezervare.TaraID" class="control-label">Hotel</label>
+                <label asp-for="Rezervare.TaraID" class="control-label">Tara</label>
                 <select asp-for="Rezervare.TaraID" class="form-control" asp-items="ViewBag.TaraID">
                 </select>
                 <span asp-validation-for="Rezervare.HotelID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rezervare.Hotel.TipCamera" class="control-label">Hotel</label>
+                <label asp-for="Rezervare.Hotel.TipCamera" class="control-label">Tip camera</label>
                 <select asp-for="Rezervare.Hotel.TipCamera" class="form-control" asp-items="ViewBag.HotelT">
                 </select>
                 <span asp-validation-for="Rezervare.Hotel.TipCamera" class="text-danger"></span>
@@ -62,16 +62,16 @@
                 <input asp-for="Rezervare.DataPlecare" class="form-control" />
                 <span asp-validation-for="Rezervare.DataPlecare" class="text-danger"></span>
             </div>
+            </br>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
+                <button class="btn btn-dark"><a style="text-decoration:none;color:white" asp-page="/Prezentari/Index">Înapoi</a></button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

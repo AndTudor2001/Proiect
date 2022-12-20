@@ -29,7 +29,10 @@ namespace Proiect.Pages.Hoteluri
                 return NotFound();
             }
 
-            var hotel = await _context.Hotel.FirstOrDefaultAsync(m => m.Id == id);
+            var hotel = await _context.Hotel
+                .Include(i=>i.Tara)
+                .Include(i=>i.Oras)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (hotel == null)
             {
                 return NotFound();
