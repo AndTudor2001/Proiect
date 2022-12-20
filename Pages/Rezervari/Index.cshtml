@@ -8,16 +8,13 @@
 <h1>Rezervari</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+     <button class="btn btn-light"><a style="text-decoration:none; color:black" asp-page="Create">Adaugă</a></button>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Rezervare[0].Nume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rezervare[0].Prenume)
             </th>
             <th>
                 @Html.LabelFor(model => model.Rezervare[0].Hotel.Nume,"Hotel")
@@ -48,8 +45,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nume)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Prenume)
             </td>
                 <td>
@@ -74,9 +69,9 @@
                 @Html.DisplayFor(modelItem => item.DataPlecare)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <button class="btn btn-primary"> <a style="color: white; text-decoration: none" asp-page="./Details" asp-route-id="@item.Id">Detalii</a></button>
+                        <button class="btn btn-warning"> <a style="color: white; text-decoration: none" asp-page="./Edit" asp-route-id="@item.Id">Editează</a> </button>
+                    <button class="btn btn-danger"> <a style="color: white; text-decoration: none" asp-page="./Delete" asp-route-id="@item.Id">Șterge</a></button>
             </td>
         </tr>
 }

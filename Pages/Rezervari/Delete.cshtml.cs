@@ -29,7 +29,11 @@ namespace Proiect.Pages.Rezervari
                 return NotFound();
             }
 
-            var rezervare = await _context.Rezervare.FirstOrDefaultAsync(m => m.Id == id);
+            var rezervare = await _context.Rezervare
+                 .Include(i => i.Hotel)
+                .Include(i => i.Oras)
+                .Include(i => i.Tara)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (rezervare == null)
             {

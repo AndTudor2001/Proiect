@@ -16,6 +16,7 @@ namespace Proiect.Models
         public int NrPers { get; set;}
         [Column(TypeName = "decimal(6, 2)")]
         public decimal? PretCamera { get; set; }
+        
         public int? Rating { get; set; }
 
         public ICollection<Prezentare>? Prezentari { get; set; }

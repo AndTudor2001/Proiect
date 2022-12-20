@@ -29,7 +29,11 @@ namespace Proiect.Pages.Prezentari
                 return NotFound();
             }
 
-            var prezentare = await _context.Prezentare.FirstOrDefaultAsync(m => m.Id == id);
+            var prezentare = await _context.Prezentare
+                   .Include(i => i.Hotel)
+                .Include(i => i.Oras)
+                .Include(i => i.Tara)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (prezentare == null)
             {

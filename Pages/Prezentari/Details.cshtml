@@ -5,7 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalii</h1>
 
 <div>
     <h4>Prezentare</h4>
@@ -38,6 +38,7 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Prezentare?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <button class="btn btn-secondary"><a style="text-decoration:none; color:White" asp-page="/Rezervari/Create">Rezerva!</a></button>
+    <button class="btn btn-warning"> <a style="color: white; text-decoration: none" asp-page="./Edit" asp-route-id="@Model.Prezentare?.Id">Editează</a> </button>
+     <button class="btn btn-dark"><a style="text-decoration:none;color:white" asp-page="./Index">Înapoi</a></button>
 </div>

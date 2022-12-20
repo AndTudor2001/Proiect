@@ -28,7 +28,11 @@ namespace Proiect.Pages.Reviews
                 return NotFound();
             }
 
-            var review = await _context.Review.FirstOrDefaultAsync(m => m.Id == id);
+            var review = await _context.Review
+                .Include(i=>i.Hotel)
+                .Include(i=>i.Oras)
+                .Include(i=>i.Tara)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (review == null)
             {
                 return NotFound();

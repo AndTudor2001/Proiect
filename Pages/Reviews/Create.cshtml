@@ -5,7 +5,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Adaugă</h1>
 
 <h4>Review</h4>
 <hr />
@@ -20,13 +20,13 @@
                 <span asp-validation-for="Review.HotelID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Review.OrasID" class="control-label">Hotel</label>
+                <label asp-for="Review.OrasID" class="control-label">Oras</label>
                 <select asp-for="Review.OrasID" class="form-control" asp-items="ViewBag.OrasID">
                 </select>
                 <span asp-validation-for="Review.OrasID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Review.TaraID" class="control-label">Hotel</label>
+                <label asp-for="Review.TaraID" class="control-label">Tara</label>
                 <select asp-for="Review.TaraID" class="form-control" asp-items="ViewBag.TaraID">
                 </select>
                 <span asp-validation-for="Review.TaraID" class="text-danger"></span>
@@ -38,16 +38,16 @@
                 <span asp-validation-for="Review.Parere" class="text-danger"></span>
             </div>
            
+           </br>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
+                <button class="btn btn-dark"><a style="text-decoration:none;color:white" asp-page="./Index">Înapoi</a></button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

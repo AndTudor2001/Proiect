@@ -29,7 +29,9 @@ namespace Proiect.Pages.Orase
                 return NotFound();
             }
 
-            var oras = await _context.Oras.FirstOrDefaultAsync(m => m.Id == id);
+            var oras = await _context.Oras
+                .Include(i=>i.Tara)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (oras == null)
             {
                 return NotFound();
