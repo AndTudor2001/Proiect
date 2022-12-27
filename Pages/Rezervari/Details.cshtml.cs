@@ -30,8 +30,9 @@ namespace Proiect.Pages.Rezervari
 
             var rezervare = await _context.Rezervare
                    .Include(i => i.Hotel)
-                .Include(i => i.Oras)
-                .Include(i => i.Tara)
+                .ThenInclude(b => b.Oras)
+                      .ThenInclude(b => b.Tara)
+                      .Include(b => b.Membru)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (rezervare == null)
             {
