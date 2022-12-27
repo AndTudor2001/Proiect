@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +13,8 @@ using Proiect.Models;
 
 namespace Proiect.Pages.Rezervari
 {
+    [Authorize(Roles = "Admin")]
+
     public class EditModel : PageModel
     {
         private readonly Proiect.Data.ProiectContext _context;
@@ -39,8 +43,18 @@ namespace Proiect.Pages.Rezervari
 
             ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
             ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
-            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "Id", "Nume");
+            var tott = _context.Hotel
+                .Include(b => b.Oras)
+                .Include(b => b.Tara)
+                .Select(x => new
+                {
+                    x.Id,
+                    tot = x.Nume + " din " + x.Oras.Nume + ", " + x.Tara.Nume
+                });
+
+            ViewData["HotelID"] = new SelectList(tott, "Id", "tot");
             ViewData["HotelT"] = new SelectList(_context.Set<Hotel>(), "Id", "TipCamera");
+            ViewData["MembruID"] = new SelectList(_context.Set<Membru>(), "Id", "Numetot");
             return Page();
         }
 

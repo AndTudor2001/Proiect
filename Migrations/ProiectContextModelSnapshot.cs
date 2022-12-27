@@ -60,6 +60,32 @@ namespace Proiect.Migrations
                     b.ToTable("Hotel");
                 });
 
+            modelBuilder.Entity("Proiect.Models.Membru", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nume")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenume")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Membru");
+                });
+
             modelBuilder.Entity("Proiect.Models.Oras", b =>
                 {
                     b.Property<int>("Id")
@@ -160,8 +186,8 @@ namespace Proiect.Migrations
                     b.Property<int?>("HotelID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nume")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("MembruID")
+                        .HasColumnType("int");
 
                     b.Property<int?>("OrasID")
                         .HasColumnType("int");
@@ -169,15 +195,14 @@ namespace Proiect.Migrations
                     b.Property<int?>("Persoane")
                         .HasColumnType("int");
 
-                    b.Property<string>("Prenume")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("TaraID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("HotelID");
+
+                    b.HasIndex("MembruID");
 
                     b.HasIndex("OrasID");
 
@@ -274,8 +299,12 @@ namespace Proiect.Migrations
             modelBuilder.Entity("Proiect.Models.Rezervare", b =>
                 {
                     b.HasOne("Proiect.Models.Hotel", "Hotel")
-                        .WithMany()
+                        .WithMany("Rezervari")
                         .HasForeignKey("HotelID");
+
+                    b.HasOne("Proiect.Models.Membru", "Membru")
+                        .WithMany("Rezervari")
+                        .HasForeignKey("MembruID");
 
                     b.HasOne("Proiect.Models.Oras", "Oras")
                         .WithMany("Rezervari")
@@ -287,6 +316,8 @@ namespace Proiect.Migrations
 
                     b.Navigation("Hotel");
 
+                    b.Navigation("Membru");
+
                     b.Navigation("Oras");
 
                     b.Navigation("Tara");
@@ -297,6 +328,13 @@ namespace Proiect.Migrations
                     b.Navigation("Prezentari");
 
                     b.Navigation("Reviews");
+
+                    b.Navigation("Rezervari");
+                });
+
+            modelBuilder.Entity("Proiect.Models.Membru", b =>
+                {
+                    b.Navigation("Rezervari");
                 });
 
             modelBuilder.Entity("Proiect.Models.Oras", b =>

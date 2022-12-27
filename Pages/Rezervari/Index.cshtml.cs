@@ -26,10 +26,12 @@ namespace Proiect.Pages.Rezervari
             if (_context.Rezervare != null)
             {
                 Rezervare = await _context.Rezervare
-                    .Include(b=>b.Tara)
-                    .Include(b=>b.Oras)
+                   /*.Include(b=>b.Tara)
+                    .Include(b=>b.Oras)*/
                     .Include(b=>b.Hotel)
-
+                      .ThenInclude(b => b.Oras)
+                      .ThenInclude(b => b.Tara)
+                    .Include(b=>b.Membru)
                     .ToListAsync();
             }
         }

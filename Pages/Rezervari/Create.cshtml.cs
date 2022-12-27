@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Proiect.Data;
 using Proiect.Models;
 
@@ -21,11 +22,19 @@ namespace Proiect.Pages.Rezervari
 
         public IActionResult OnGet()
         {
+            
+            var tott = _context.Hotel
+                .Include(b => b.Oras)
+                .Include(b => b.Tara)
+                .Select(x => new
+                {
+                    x.Id,
+                    tot = x.Nume + " din " + x.Oras.Nume+ ", " + x.Tara.Nume
+                });
 
-            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
-            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
-            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "Id", "Nume");
+            ViewData["HotelID"] = new SelectList(tott, "Id", "tot");
             ViewData["HotelT"] = new SelectList(_context.Set<Hotel>(), "Id", "TipCamera");
+            ViewData["MembruID"] = new SelectList(_context.Set<Membru>(), "Id", "Numetot");
 
             return Page();
         }

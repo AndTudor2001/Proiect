@@ -12,16 +12,10 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Rezervare.Nume)
+            @Html.LabelFor(model => model.Rezervare.Membru.Numetot,"Nume")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rezervare.Nume)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Rezervare.Prenume)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rezervare.Prenume)
+            @Html.DisplayFor(model => model.Rezervare.Membru.Numetot)
         </dd>
         <dt class="col-sm-2">
             @Html.LabelFor(model => model.Rezervare.Hotel.Nume,"Hotel")
@@ -33,13 +27,13 @@
             @Html.LabelFor(model => model.Rezervare.Oras.Nume,"Oras")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rezervare.Oras.Nume)
+            @Html.DisplayFor(model => model.Rezervare.Hotel.Oras.Nume)
         </dd>
         <dt class="col-sm-2">
             @Html.LabelFor(model => model.Rezervare.Tara.Nume,"Tara")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rezervare.Tara.Nume)
+            @Html.DisplayFor(model => model.Rezervare.Hotel.Tara.Nume)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Rezervare.Hotel.TipCamera)

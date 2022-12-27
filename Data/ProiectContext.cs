@@ -26,5 +26,7 @@ namespace Proiect.Data
         public DbSet<Proiect.Models.Prezentare> Prezentare { get; set; }
 
         public DbSet<Proiect.Models.Hotel> Hotel { get; set; }
+
+        public DbSet<Proiect.Models.Membru> Membru { get; set; }
     }
 }
