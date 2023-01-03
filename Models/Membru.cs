@@ -8,7 +8,7 @@ namespace Proiect.Models
         public int Id { get; set; }
         [RegularExpression(@"^[A-Z]+[a-z\s]*$", ErrorMessage =
 "Prenumele trebuie sa inceapa cu majuscula (ex. Ana sau Ana Maria sau Ana-Maria")]
-        [StringLength(30, MinimumLength = 3)]
+        [StringLength(30, MinimumLength = 3)]    
 
         public string? Nume { get; set; }
         [RegularExpression(@"^[A-Z]+[a-z\s]*$", ErrorMessage = "Prenumele trebuie sa inceapa cu majuscula (ex. Ana sau Ana Maria sau Ana-Maria")]
