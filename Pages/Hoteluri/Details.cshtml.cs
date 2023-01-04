@@ -30,8 +30,8 @@ namespace Proiect.Pages.Hoteluri
             }
 
             var hotel = await _context.Hotel
-                .Include(i=>i.Tara)
-                .Include(i=>i.Oras)
+                .Include(i => i.Tara)
+                .Include(i => i.Oras)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (hotel == null)
             {
