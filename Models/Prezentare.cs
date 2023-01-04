@@ -10,6 +10,6 @@
         public int? HotelID { get; set; }
         public Hotel? Hotel { get; set; }
        
-
+        public ICollection<PrezHotel> PrezHoteluri { get; set; }
     }
 }

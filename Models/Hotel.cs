@@ -26,5 +26,6 @@ namespace Proiect.Models
         public ICollection<Prezentare>? Prezentari { get; set; }
         public ICollection<Rezervare>? Rezervari { get; set; }
         public ICollection<Review>? Reviews { get; set; }
+        public ICollection<PrezHotel> PrezHoteluri { get; set; }
     }
 }

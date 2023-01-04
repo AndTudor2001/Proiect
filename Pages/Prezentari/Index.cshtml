@@ -20,15 +20,22 @@
             <th>
                 @Html.LabelFor(model => model.Prezentare[0].Oras.Nume,"Oras")
             </th>
-            
+            <th>
+                @Html.LabelFor(model => model.Prezentare[0].PrezHoteluri,"Hoteluri")
+            </th>
             
 
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Prezentare) {
-        <tr>
+@foreach (var item in Model.PrezD.Prezentari) {
+        string selectedRow = "";
+ if (item.Id == Model.PrezID)
+ {
+ selectedRow = "table-success";
+ }
+ <tr class="@selectedRow">
             <td>
              
                 @Html.DisplayFor(modelItem => item.Tara.Nume)
@@ -37,6 +44,14 @@
                
                 @Html.DisplayFor(modelItem => item.Oras.Nume)
             </td>
+                <td>
+                    @{
+                        foreach (var category in item.PrezHoteluri)
+                        {
+                            @category.Hotel.Nume <br />
+                        }
+                    }
+                </td>
       
                 <td>
                     <button class="btn btn-secondary"><a style="text-decoration:none; color:White" asp-page="/Rezervari/Create">Rezerva!</a></button>

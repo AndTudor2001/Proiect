@@ -15,7 +15,7 @@ namespace Proiect.Pages.Prezentari
 {
     [Authorize(Roles = "Admin")]
 
-    public class EditModel : PageModel
+    public class EditModel : PrezHotelPageModel
     {
         private readonly Proiect.Data.ProiectContext _context;
 
@@ -34,53 +34,64 @@ namespace Proiect.Pages.Prezentari
                 return NotFound();
             }
 
-            var prezentare =  await _context.Prezentare.FirstOrDefaultAsync(m => m.Id == id);
+            var prezentare =  await _context.Prezentare
+                .Include(b => b.PrezHoteluri).ThenInclude(b => b.Hotel)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (prezentare == null)
             {
                 return NotFound();
             }
+
             Prezentare = prezentare;
+            PopulateCatAsignate(_context, Prezentare);
 
             ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
             ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
             ViewData["OrasD"] = new SelectList(_context.Set<Oras>(), "Id", "Descriere");
-            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "Id", "Nume");
+          
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id, string[] catSelectate)
         {
-            if (!ModelState.IsValid)
             {
-                return Page();
-            }
-
-            _context.Attach(Prezentare).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PrezentareExists(Prezentare.Id))
+                if (id == null)
                 {
                     return NotFound();
                 }
-                else
+
+                var hotelToUpdate = await _context.Prezentare
+                   .Include(i => i.Tara)
+                   .Include(i=>i.Oras)
+                   .Include(i=>i.Hotel)
+                .Include(i => i.PrezHoteluri)
+                .ThenInclude(i => i.Hotel)
+                .FirstOrDefaultAsync(s => s.Id == id);
+                if (hotelToUpdate == null)
                 {
-                    throw;
+                    return NotFound();
                 }
+
+                if (await TryUpdateModelAsync<Prezentare>(
+                hotelToUpdate,
+                "Prezentare",
+                i => i.TaraID, i => i.OrasID
+               
+                ))
+                {
+                    UpdateBookCategories(_context, catSelectate, hotelToUpdate);
+                    await _context.SaveChangesAsync();
+                    return RedirectToPage("./Index");
+                }
+                UpdateBookCategories(_context, catSelectate, hotelToUpdate);
+                PopulateCatAsignate(_context, hotelToUpdate);
+                return Page();
             }
-
-            return RedirectToPage("./Index");
         }
 
-        private bool PrezentareExists(int id)
-        {
-          return _context.Prezentare.Any(e => e.Id == id);
-        }
     }
+
 }
