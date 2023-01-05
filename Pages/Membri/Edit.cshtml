@@ -34,13 +34,13 @@
                 <input asp-for="Membru.Telefon" class="form-control" />
                 <span asp-validation-for="Membru.Telefon" class="text-danger"></span>
             </div>
-         
+            <input type="submit" value="Save" class="btn btn-success" />
+            <button class="btn btn-dark"><a style="text-decoration:none;color:white" asp-page="./Index">Înapoi</a></button>
         </form>
     </div>
 </div>
 
-<input type="submit" value="Save" class="btn btn-success" />
-<button class="btn btn-dark"><a style="text-decoration:none;color:white" asp-page="./Index">Înapoi</a></button>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
