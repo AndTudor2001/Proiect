@@ -16,7 +16,9 @@
             <th>
                 @Html.LabelFor(model => model.Review[0].Hotel.Nume,"Hotel")
             </th>
-       
+            <th>
+                Locatie
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Review[0].Parere)
             </th>
@@ -30,7 +32,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Hotel.Nume )
             </td>
-     
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel.Oras.Nume),
+                    @Html.DisplayFor(modelItem => item.Hotel.Tara.Nume)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Parere)
                 </td>

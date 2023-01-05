@@ -31,7 +31,7 @@ namespace Proiect.Pages.Hoteluri
         }
 
         [BindProperty]
-        public Hotel? Hotel { get; set; }
+        public Hotel Hotel { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD

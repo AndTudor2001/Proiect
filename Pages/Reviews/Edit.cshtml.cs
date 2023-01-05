@@ -42,7 +42,16 @@ namespace Proiect.Pages.Reviews
             Review = review;
             ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
             ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
-            ViewData["HotelID"] = new SelectList(_context.Set<Hotel>(), "Id", "Nume");
+            var tott = _context.Hotel
+                .Include(b => b.Oras)
+                .Include(b => b.Tara)
+                .Select(x => new
+                {
+                    x.Id,
+                    tot = x.Nume + " din " + x.Oras.Nume + ", " + x.Tara.Nume
+                });
+
+            ViewData["HotelID"] = new SelectList(tott, "Id", "tot");
             return Page();
         }
 
