@@ -42,7 +42,7 @@ namespace Proiect.Pages.Hoteluri
                 return Page();
             }
 
-            _ = _context.Hotel.Add(Hotel);
+            _context.Hotel.Add(Hotel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
