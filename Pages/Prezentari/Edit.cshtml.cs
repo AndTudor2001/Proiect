@@ -46,8 +46,8 @@ namespace Proiect.Pages.Prezentari
             Prezentare = prezentare;
             PopulateCatAsignate(_context, Prezentare);
 
-            ViewData["OrasID"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
-            ViewData["TaraID"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
+            ViewData["oras"] = new SelectList(_context.Set<Oras>(), "Id", "Nume");
+            ViewData["tara"] = new SelectList(_context.Set<Tara>(), "ID", "Nume");
             ViewData["OrasD"] = new SelectList(_context.Set<Oras>(), "Id", "Descriere");
           
             return Page();
